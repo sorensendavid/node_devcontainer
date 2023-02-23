@@ -1,0 +1,31 @@
+{
+  "name": "Boilerplate Debian Node Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "USERNAME": "vscode",
+      "USER_UID": "1001",
+      "APPNAME": "Boilerplate",
+      "NODE_VERSION": "gallium-bullseye" // https://hub.docker.com/_/node/
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "settings": {},
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "esbenp.prettier-vscode",
+        "dakara.transformer"
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "workspaceMount": "source=hoomans-source,target=/workspace,type=volume",
+  "workspaceFolder": "/hoomans",
+  "mounts": [
+    "source=hoomans-bash-history,target=/commandhistory,type=volume",
+    "source=hoomans-vscode-extensions,target=/root/.vscode-server/extensions,type=volume"
+  ]
+}
